@@ -19,7 +19,7 @@ while (1) {
   $result = mysqli_query($conn, "SELECT * FROM (SELECT id, entry FROM entries WHERE id >".$starting_id." ORDER BY id DESC LIMIT 10) t ORDER BY id");
 
   while ($row = mysqli_fetch_row($result)) {
-    echo 'data: { "id" : "'.$row[0].'  '.$starting_id.'", "entry": "'.$row[1].'"}';
+    echo 'data: { "id" : "'.$row[0].'", "entry": "'.$row[1].'"}';
     echo "\n\n";
     $starting_id = $row[0];
     ob_end_flush();
